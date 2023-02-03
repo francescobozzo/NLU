@@ -1,0 +1,1 @@
+{"rule":"A_INFINITIVE","sentence":"^\\QThis project presents some deep learning techniques to predict intents and slots in a multitask learning setting.\\E$"}
