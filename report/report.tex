@@ -280,6 +280,37 @@ Further tests have been attempted on model A to increase the number of LSTM laye
 
 Finally, Model B obtains very similar accuracies and F1 scores with respect to Model A. As already explained, GRU should guarantee the same performance of LSTM, but with less computational power required, thanks to their simplified cell structure. Specifically, Model B's training is $\sim$10\% faster than Model A's one.
 
+\Cref{fig:cm-baseline-atis-slot,fig:cm-baseline-atis-intent,fig:cm-model-b-snips-slot,fig:cm-model-b-snips-intent} show the confusion matrices for Model B, which can be viewed at high resolution on the \href{https://github.com/francescobozzo/NLU/tree/main/cm}{project repository}.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{../cm/cm-model-b-atis-slot.png}
+    \caption{Confusion matrix for slot filling of Model B on ATIS.}
+    \label{fig:cm-baseline-atis-slot}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{../cm/cm-model-b-atis-intent.png}
+    \caption{Confusion matrix for slot filling of Model B on ATIS.}
+    \label{fig:cm-baseline-atis-intent}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{../cm/cm-model-b-snips-slot.png}
+    \caption{Confusion matrix for intent classification of Model B on SNIPS.}
+    \label{fig:cm-model-b-snips-slot}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{../cm/cm-model-b-snips-intent.png}
+    \caption{Confusion matrix for intent classification of Model B on SNIPS.}
+    \label{fig:cm-model-b-snips-intent}
+\end{figure}
+
+
 \section{Conclusion}
 This work presents and compares three different models by using the ATIS and SNIPS datasets to solve jointly intent classification and slot filling. Moreover, an extensive analysis on results and performance has been carried out, specifically on the dataset composition and model limitations.
 
