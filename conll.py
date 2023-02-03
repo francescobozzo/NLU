@@ -214,3 +214,4 @@ def read_corpus_conll(corpus_file, fs="\t"):
 def get_chunks(corpus_file, fs="\t", otag="O"):
     sents = read_corpus_conll(corpus_file, fs=fs)
     return set([parse_iob(token[-1])[1] for sent in sents for token in sent if token[-1] != otag])
+    
