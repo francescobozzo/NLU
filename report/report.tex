@@ -248,7 +248,7 @@ In this section
             Model & Slot F1  & Intent Acc. & Slot F1 & Intent Acc.\\
         \midrule
             Baseline & $0.918 \pm 0.003$ & $0.937 \pm 0.004$ & $0.803 \pm 0.012$ & $0.961 \pm 0.005$ \vspace{0.2cm}\\
-            Model A & & & & \vspace{0.2cm}\\
+            Model A & $0.947 \pm 0.001$ & $0.965 \pm 0.002$ & $0.899 \pm 0.006$ & $0.971 \pm 0.002$ \vspace{0.2cm}\\
             Model B & & & & \\
         \bottomrule
     \end{tabular}
@@ -259,7 +259,15 @@ In this section
 \subsection{Results and Interpretation}
 Even though the scores seem to be quite decent also for the baseline model, it struggles a lot when dealing with classes that are not frequent: this conclusion is more evident on the ATIS dataset, since it is more unbalanced that SNIPS. In this situation the model tends to overpredict the most common labels, such as \texttt{flight} for intent classification on the ATIS dataset. On the contrary, as provided in \cref{tab:model-score}, the baseline model is already able to obtain good results when dealing with the balanced intent classification task on the SNIPS dataset. 
 
-Moreover, the baseline model struggles when doing slot filling on the ATIS dataset when dealing with numbers departure and arrival information. Even though the model is able to understand if it is dealing with a city, day name, or month number, it is not very good at identifying if it is an information linked to departure or arrival.
+Moreover, the baseline model struggles when doing slot filling on the ATIS dataset when dealing with numbers departure and arrival information. Even though the model is able to understand if it is dealing with a city, day name, or month number, it is not very good at identifying if it is an information linked to departure or arrival. This problem seems to be partially solved with model A.
+
+Another similar issue that all the models present is the fact they struggle to distinguish between song and album names in the SNIPS dataset.
+
+With respect to the baseline, the model A improves performances of $\sim$2.5\% for both the datasets. Once noticeable improvement is in terms of faster convergence thanks to the higher learning rate. This helps to avoid local minimum and to reduce of the required number of epochs to 1/4 with respect to the baseline.
+
+Even though the performance improvement is not that noticeable, the normalization layer on the model A gives more stability (less variance in model performance) and better gradient flow during the back-propagation of the computational graph.
+
+Further tests have been attempted on model A to increase the number of LSTM layers or the depth of the heads. Even though incrementing the number of parameters is generally a rule of thumb in machine learning, in this case the datasets, especially ATIS, are not big enough: during the training process the model suffered from overfitting. Still, the big improvement on SNIPS (which is bigger than ATIS) of model A with respect to the baseline is probably due to the increment of trainable parameters. Dropout has been tested on model A's heads, but it does not improve the performance.
 
 \section{Conclusion}
 \textcolor{red}{TODO}
